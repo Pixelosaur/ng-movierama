@@ -1,0 +1,6 @@
+.content-wrapper {
+    margin-top: 25px;
+    padding: 0 25px;
+    position: relative;
+    min-height: 100%;
+}
