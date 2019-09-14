@@ -1,0 +1,9 @@
+.container#login-container {
+      height: 100%;
+      min-height: 400px;
+      padding-top: 115px;
+}
+
+.login-container .login-wrapper {
+    height: 100%;
+}
