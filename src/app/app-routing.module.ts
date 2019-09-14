@@ -6,13 +6,11 @@ import { NgModule } from '@angular/core';
 import { LayoutComponent } from './layout/components/layout.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'movies', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     {
         path: '',
         component: LayoutComponent,
-        canActivate: [AuthGuard],
-        runGuardsAndResolvers: 'always',
         children: [{ path: 'movies', component: MoviesComponent }],
     },
 ];

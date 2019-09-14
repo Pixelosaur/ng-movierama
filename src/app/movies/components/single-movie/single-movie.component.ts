@@ -12,7 +12,7 @@ export class SingleMovieComponent {
     constructor() {}
 
     // on click emits the publisherName to the parent component
-    onClick(id: string): void {
+    onPublisherNameClick(id: string): void {
         this.publisherId.emit(id);
     }
 }
