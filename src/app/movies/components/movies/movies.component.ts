@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/movie.interface';
 import { MovieService } from '../../services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-movies',
@@ -9,7 +10,7 @@ import { MovieService } from '../../services/movie.service';
 export class MoviesComponent implements OnInit {
     movies: Movie[];
 
-    constructor(private movieService: MovieService) {}
+    constructor(private movieService: MovieService, private router: Router) {}
 
     ngOnInit(): void {
         this.getMovies();
@@ -39,5 +40,9 @@ export class MoviesComponent implements OnInit {
                 console.error(errorResponse);
             },
         );
+    }
+
+    redirect(path: string): void {
+        this.router.navigate([path]);
     }
 }
