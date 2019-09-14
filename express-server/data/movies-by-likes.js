@@ -1,14 +1,5 @@
 exports.data = [
     {
-        title: 'Prometheus',
-        publisherName: 'Kosmas',
-        publicationDate: new Date(),
-        publisherId: '2',
-        description: 'LLALALALALALALALALALALALALALALAL',
-        likesCount: 308,
-        hatesCount: 23,
-    },
-    {
         title: 'The Emprire Strikes Back',
         publisherName: 'Christina',
         publicationDate: new Date(),
@@ -18,13 +9,22 @@ exports.data = [
         hatesCount: 3,
     },
     {
-        title: 'Event Horizon',
-        publisherName: 'Helen',
+        title: 'Prometheus',
+        publisherName: 'Kosmas',
         publicationDate: new Date(),
-        publisherId: '4',
+        publisherId: '2',
         description: 'LLALALALALALALALALALALALALALALAL',
-        likesCount: 51,
-        hatesCount: 16,
+        likesCount: 308,
+        hatesCount: 23,
+    },
+    {
+        title: 'Alien',
+        publisherName: 'John',
+        publicationDate: new Date(),
+        publisherId: '3',
+        description: 'LLALALALALALALALALALALALALALALAL',
+        likesCount: 279,
+        hatesCount: 57,
     },
     {
         title: 'Sunshine',
@@ -35,14 +35,13 @@ exports.data = [
         likesCount: 130,
         hatesCount: 87,
     },
-
     {
-        title: 'Alien',
-        publisherName: 'John',
+        title: 'Event Horizon',
+        publisherName: 'Helen',
         publicationDate: new Date(),
-        publisherId: '3',
+        publisherId: '4',
         description: 'LLALALALALALALALALALALALALALALAL',
-        likesCount: 279,
-        hatesCount: 57,
+        likesCount: 51,
+        hatesCount: 16,
     },
 ];

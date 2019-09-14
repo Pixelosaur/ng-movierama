@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const loginUsers = require('./data/login-users');
 const jwtToken = require('./data/jwt');
 const movies = require('./data/movies');
+const moviesByLikes = require('./data/movies-by-likes');
 
 /* create new express app */
 const app = express();
@@ -71,7 +72,16 @@ app.get('/movies', (req, res) => {
             message: 'The req.query is empty',
         });
     }
-    res.json(movies);
+
+    if (req.query.sort === 'publicationDate') {
+        res.json(moviesByDate);
+    } else if (req.query.sort === 'likesCount') {
+        res.json(moviesByLikes);
+    } else if (req.query.sort === 'hatesCount') {
+        res.json(moviesByHates);
+    } else {
+        res.json(movies);
+    }
 });
 
 app.get('/movies/:id', (req, res) => {
@@ -82,7 +92,7 @@ app.get('/movies/:id', (req, res) => {
     }
 
     const moviesById = movies.data.filter((movie) => {
-        return movie.publisherId === req.params.id
+        return movie.publisherId === req.params.id;
     });
     res.json(moviesById);
 });
