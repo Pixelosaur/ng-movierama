@@ -1,0 +1,17 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{movie.title}}</h5>
+        <p class="card-text">
+            <small class="card-text">Posted By:
+                <i class="text-primary cursor-pointer"
+                   (click)="onClick(movie.publisherId)">
+                    {{movie.publisherName}}
+                </i>
+            </small> |
+            <small class="text-muted">Last updated: {{movie.publicationDate | date}}</small>
+        </p>
+        <p class="card-text">{{movie.description}}</p>
+        <span class="card-link">{{movie.likesCount}} Likes</span>
+        <span class="card-link">{{movie.hatesCount}} Hates</span>
+    </div>
+</div>
