@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from '../interfaces/movie.interface';
 import { environment } from '../../../environments/environment';
@@ -9,14 +9,13 @@ import { map } from 'rxjs/operators';
 export class MovieService {
     constructor(private http: HttpClient) {}
 
-    getMovies(
-        publicationDate?: string,
-        likesCount?: string,
-        hatesCount?: string,
-    ): Observable<Movie[]> {
-        const params = {
-            sort: publicationDate,
-        };
+    getMovies(sort: string = null): Observable<Movie[]> {
+        const params =
+            sort !== null
+                ? {
+                      sort,
+                  }
+                : undefined;
 
         return this.http
             .get<any>(`${environment.expressServerUrl}/movies`, {

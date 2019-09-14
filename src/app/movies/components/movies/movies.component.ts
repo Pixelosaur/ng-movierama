@@ -16,19 +16,28 @@ export class MoviesComponent implements OnInit {
     }
 
     getMoviesByPublisherId(id: string): void {
-        this.movieService.getMoviesByPublisherId(id).subscribe((movies: Movie[]) => {
-            console.log(movies);
-            this.movies = movies;
-        });
+        this.movieService.getMoviesByPublisherId(id).subscribe(
+            (movies: Movie[]) => {
+                this.movies = movies;
+            },
+            (errorResponse: any) => {
+                console.error(errorResponse);
+            },
+        );
     }
 
     onGetPublisherId(publisherId: string): void {
         this.getMoviesByPublisherId(publisherId);
     }
 
-    getMovies(): void {
-        this.movieService.getMovies().subscribe((movies: Movie[]) => {
-            this.movies = movies;
-        });
+    getMovies(sort?: string): void {
+        this.movieService.getMovies(sort).subscribe(
+            (movies: Movie[]) => {
+                this.movies = movies;
+            },
+            (errorResponse: any) => {
+                console.error(errorResponse);
+            },
+        );
     }
 }
