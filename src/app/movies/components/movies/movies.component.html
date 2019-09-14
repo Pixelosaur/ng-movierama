@@ -5,13 +5,16 @@
 
     <div class="col-3">
         <div class="float-right">
-            <button class="btn btn-outline-primary mr-2">
-                Login
-            </button>
+            <!-- Unregistered User  -->
+            <div>
+                <button class="btn btn-outline-primary mr-2">
+                    Login
+                </button>
 
-            <button class="btn btn-primary">
-                Sign Up
-            </button>
+                <button class="btn btn-primary">
+                    Sign Up
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -21,8 +24,17 @@
     <div class="col-12">
         <div class="mt-3 p-3 bg-light">
             <span class="pr-2">Sort by:</span>
-            <span class="text-primary">Likes</span> | <span class="text-primary">Hates</span> |
-            <span class="text-primary">Date</span>
+            <span class="text-primary cursor-pointer" (click)="getMovies('likesCount')">
+                Likes
+            </span>
+            |
+            <span class="text-primary cursor-pointer" (click)="getMovies('hatesCount')">
+                Hates
+            </span>
+            |
+            <span class="text-primary cursor-pointer" (click)="getMovies('publicationDate')">
+                Date
+            </span>
         </div>
     </div>
 </div>
