@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/movie.interface';
 import { MovieService } from '../../services/movie.service';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { TokenService } from '../../../core/services/token.service';
 
 @Component({
     selector: 'app-movies',
@@ -9,11 +11,25 @@ import { Router } from '@angular/router';
 })
 export class MoviesComponent implements OnInit {
     movies: Movie[];
+    username: string;
 
-    constructor(private movieService: MovieService, private router: Router) {}
+    constructor(
+        private movieService: MovieService,
+        private router: Router,
+        private tokenService: TokenService,
+        private jwtHelperService: JwtHelperService,
+    ) {}
 
     ngOnInit(): void {
+        this.getUsername();
         this.getMovies();
+    }
+
+    getUsername(): void {
+        const token: string = this.tokenService.getToken('accessToken');
+        const decodedToken = this.jwtHelperService.decodeToken(token);
+
+        this.username = token ? decodedToken.username : null;
     }
 
     getMoviesByPublisherId(id: string): void {

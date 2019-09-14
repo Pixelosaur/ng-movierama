@@ -6,16 +6,18 @@
     <div class="col-3">
         <div class="float-right">
             <!-- Unregistered User  -->
-            <div>
-                <button class="btn btn-outline-primary mr-2"
-                        (click)="redirect('login')">
+            <div *ngIf="username === null">
+                <button class="btn btn-outline-primary mr-2" (click)="redirect('login')">
                     Login
                 </button>
 
-                <button class="btn btn-primary"
-                        (click)="redirect('register')">
+                <button class="btn btn-primary" (click)="redirect('register')">
                     Sign Up
                 </button>
+            </div>
+
+            <div *ngIf="username !== null">
+                <p>Welcome back, {{ username }}</p>
             </div>
         </div>
     </div>
@@ -23,20 +25,24 @@
 
 <!-- Sort menu-->
 <div class="row">
-    <div class="col-12">
-        <div class="mt-3 p-3 bg-light">
-            <span class="pr-2">Sort by:</span>
-            <span class="text-primary cursor-pointer" (click)="getMovies('likesCount')">
-                Likes
-            </span>
-            |
-            <span class="text-primary cursor-pointer" (click)="getMovies('hatesCount')">
-                Hates
-            </span>
-            |
-            <span class="text-primary cursor-pointer" (click)="getMovies('publicationDate')">
-                Date
-            </span>
+    <div class="col">
+        <div class="mt-3 p-3 bg-light d-flex align-items-center justify-content-between">
+            <div>
+                <span class="pr-2">Sort by:</span>
+                <span class="text-primary cursor-pointer" (click)="getMovies('likesCount')">
+                    Likes
+                </span>
+                |
+                <span class="text-primary cursor-pointer" (click)="getMovies('hatesCount')">
+                    Hates
+                </span>
+                |
+                <span class="text-primary cursor-pointer" (click)="getMovies('publicationDate')">
+                    Date
+                </span>
+            </div>
+
+            <button class="btn btn-success" *ngIf="username">Add New Movie</button>
         </div>
     </div>
 </div>
@@ -45,8 +51,7 @@
 <div class="row mt-5">
     <div class="col">
         <div *ngFor="let movie of movies">
-            <app-single-movie [movie]="movie"
-                              (publisherId)="onGetPublisherId($event)">
+            <app-single-movie [movie]="movie" (publisherId)="onGetPublisherId($event)">
             </app-single-movie>
         </div>
     </div>
