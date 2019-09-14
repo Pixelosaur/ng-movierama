@@ -18,6 +18,7 @@ import { LoginFormComponent } from './login/components/login-form/login-form.com
 import { LoginService } from './login/services/login.service';
 import { SingleMovieComponent } from './movies/components/single-movie/single-movie.component';
 import { MovieService } from './movies/services/movie.service';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { MovieService } from './movies/services/movie.service';
         AppRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
+        NgbModalModule,
         JwtModule.forRoot({
             jwtOptionsProvider: {
                 provide: JWT_OPTIONS,
