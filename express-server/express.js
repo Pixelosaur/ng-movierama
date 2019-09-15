@@ -31,7 +31,7 @@ app.use(
 );
 
 /* user login */
-app.post('/authentication/login', (req, res) => {
+app.post('/authenticate', (req, res) => {
     const body = req.body;
     const user = loginUsers.data.loginUsers.find((user) => user.email === body.email);
 

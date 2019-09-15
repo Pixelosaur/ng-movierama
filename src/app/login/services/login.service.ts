@@ -13,7 +13,7 @@ export class LoginService {
     /** it posts the login user to the server and returns a jwt accessToken */
     login(user: LoginUser): Observable<Jwt> {
         return this.http
-            .post<any>(`${environment.expressServerUrl}/authentication/login`, user)
+            .post<any>(`${environment.expressServerUrl}/authenticate`, user)
             .pipe(
                 map((response: any) => response.data),
                 map((jwt: any) => jwt.jwt),
