@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TokenService } from '../../../core/services/token.service';
 import { LoginUser } from '../../interfaces/login-user.interface';
-import { Jwt } from '../../interfaces/jwt.interface';
+import { Jwt } from '../../../core/interfaces/jwt.interface';
 import { LoginService } from '../../services/login.service';
 
 @Component({

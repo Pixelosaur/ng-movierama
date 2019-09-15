@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginUser } from '../interfaces/login-user.interface';
 import { Observable } from 'rxjs';
-import { Jwt } from '../interfaces/jwt.interface';
+import { Jwt } from '../../core/interfaces/jwt.interface';
 import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 

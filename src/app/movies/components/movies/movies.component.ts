@@ -7,6 +7,7 @@ import { TokenService } from '../../../core/services/token.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewMovie } from '../../interfaces/new-movie.interface';
+import { DecryptedToken } from '../../../core/interfaces/decrypted-token.interface';
 
 @Component({
     selector: 'app-movies',
@@ -36,9 +37,9 @@ export class MoviesComponent implements OnInit {
     /* decodes the accessToken from JWT and gets the username value */
     getNameFromJWT(): void {
         const token: string = this.tokenService.getToken('accessToken');
-        const decodedToken = this.jwtHelperService.decodeToken(token);
+        const decryptedToken: DecryptedToken = this.jwtHelperService.decodeToken(token);
 
-        this.username = token ? decodedToken.name : null;
+        this.username = token ? decryptedToken.name : null;
     }
 
     getMoviesByPublisherId(id: string): void {
