@@ -74,11 +74,11 @@ app.get('/movies', (req, res) => {
         });
     }
 
-    if (req.query.sort === 'publicationDate') {
+    if (req.query.sort === 'publicationDate,desc') {
         res.json(moviesByDate);
-    } else if (req.query.sort === 'likesCount') {
+    } else if (req.query.sort === 'likesCount,desc') {
         res.json(moviesByLikes);
-    } else if (req.query.sort === 'hatesCount') {
+    } else if (req.query.sort === 'hatesCount,desc') {
         res.json(moviesByHates);
     } else {
         res.json(movies);
@@ -101,7 +101,7 @@ app.get('/movies/:id', (req, res) => {
 app.post('/movies', (req, res) => {
     const movie = newMovie.data;
 
-    movies.data.push(movie);
+    // movies.data.push(movie);
     return res.json(movie);
 });
 
