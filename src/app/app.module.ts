@@ -6,8 +6,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 import { JwtOptionsService } from './core/services/jwt-options.service';
-import { AuthGuard } from './core/auth/guards/auth.guard';
-import { AuthService } from './core/auth/services/auth.service';
 import { TokenService } from './core/services/token.service';
 import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
 import { MoviesComponent } from './movies/components/movies/movies.component';
@@ -19,6 +17,8 @@ import { LoginService } from './login/services/login.service';
 import { SingleMovieComponent } from './movies/components/single-movie/single-movie.component';
 import { MovieService } from './movies/services/movie.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/components/register/register.component';
+import { RegisterFormComponent } from './register/components/register-form/register-form.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +28,8 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
         LoginFormComponent,
         MoviesComponent,
         SingleMovieComponent,
+        RegisterComponent,
+        RegisterFormComponent,
     ],
     imports: [
         BrowserModule,
@@ -44,9 +46,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-        AuthGuard,
         AuthInterceptor,
-        AuthService,
         TokenService,
         LoginService,
         MovieService,
