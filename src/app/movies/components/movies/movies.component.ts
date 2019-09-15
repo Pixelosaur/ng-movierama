@@ -110,4 +110,9 @@ export class MoviesComponent implements OnInit {
         this.addNewMovie(movie);
         this.modalService.dismissAll();
     }
+
+    logout(): void {
+        this.tokenService.removeToken('accessToken');
+        this.router.navigate(['/login']);
+    }
 }
