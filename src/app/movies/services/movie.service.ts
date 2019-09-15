@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Movie } from '../interfaces/movie.interface';
 import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
+import { NewMovie } from '../interfaces/new-movie.interface';
 
 @Injectable()
 export class MovieService {
@@ -31,6 +32,13 @@ export class MovieService {
         return this.http.get<any>(`${environment.expressServerUrl}/movies/${id}`).pipe(
             map((response) => response.data),
             map((movies: Movie[]) => movies),
+        );
+    }
+
+    addMovie(movie: NewMovie): Observable<Movie> {
+        return this.http.post<any>(`${environment.expressServerUrl}/movies`, movie).pipe(
+            map((response: any) => response.data),
+            map((newMovie: Movie) => newMovie),
         );
     }
 }
