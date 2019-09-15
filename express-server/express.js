@@ -105,6 +105,12 @@ app.post('/movies', (req, res) => {
     return res.json(movie);
 });
 
+app.post('/movies/:id', (req, res) => {
+    const votedMovie = movies.data.find((movie) => movie.id === req.params.id);
+
+    return res.json(votedMovie);
+});
+
 /** for serving static files */
 app.use(express.static(__dirname));
 
