@@ -9,11 +9,11 @@ import { map } from 'rxjs/operators';
 export class MovieService {
     constructor(private http: HttpClient) {}
 
-    getMovies(sort: string = null): Observable<Movie[]> {
+    getMovies(sort: string = null, order: string = 'desc'): Observable<Movie[]> {
         const params =
             sort !== null
                 ? {
-                      sort,
+                      sort: `${sort},${order}`,
                   }
                 : undefined;
 
