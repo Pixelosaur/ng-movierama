@@ -1,6 +1,6 @@
-export interface RegisterUser {
+import { LoginUser } from '../../login/interfaces/login-user.interface';
+
+export interface RegisterUser extends LoginUser {
     name: string;
-    email: string;
-    password: string;
     confirmPassword: string;
 }
