@@ -8,6 +8,7 @@ const loginUsers = require('./data/login-users');
 const jwtToken = require('./data/jwt');
 const movies = require('./data/movies');
 const moviesByLikes = require('./data/movies-by-likes');
+const newMovie = require('./data/new-movie');
 
 /* create new express app */
 const app = express();
@@ -95,6 +96,13 @@ app.get('/movies/:id', (req, res) => {
         return movie.publisherId === req.params.id;
     });
     res.json(moviesById);
+});
+
+app.post('/movies', (req, res) => {
+    const movie = newMovie.data;
+
+    movies.data.push(movie);
+    return res.json(movie);
 });
 
 /** for serving static files */
