@@ -1,6 +1,7 @@
 exports.data = [
     {
         title: 'Prometheus',
+        id: '1',
         publisherName: 'Kosmas',
         publicationDate: new Date(),
         publisherId: '2',
@@ -10,6 +11,7 @@ exports.data = [
     },
     {
         title: 'The Emprire Strikes Back',
+        id: '2',
         publisherName: 'Christina',
         publicationDate: new Date(),
         publisherId: '1',
@@ -19,6 +21,7 @@ exports.data = [
     },
     {
         title: 'Event Horizon',
+        id: '3',
         publisherName: 'Helen',
         publicationDate: new Date(),
         publisherId: '4',
@@ -28,6 +31,7 @@ exports.data = [
     },
     {
         title: 'Sunshine',
+        id: '4',
         publisherName: 'Christina',
         publicationDate: new Date(),
         publisherId: '1',
@@ -38,6 +42,7 @@ exports.data = [
 
     {
         title: 'Alien',
+        id: '5',
         publisherName: 'John',
         publicationDate: new Date(),
         publisherId: '3',
