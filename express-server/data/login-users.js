@@ -2,17 +2,17 @@ exports.data = {
     loginUsers: [
         {
             id: 1,
-            email: 'user@movierama.com',
+            username: 'user@movierama.com',
             password: 'movie1234',
         },
         {
             id: 2,
-            email: 'user1@movierama.com',
+            username: 'user1@movierama.com',
             password: 'movie1234',
         },
         {
             id: 3,
-            email: 'user2@movierama.com',
+            username: 'user2@movierama.com',
             password: 'movie1234',
         },
     ],

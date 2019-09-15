@@ -1,20 +1,20 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
     <!-- login user email -->
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="username">Email</label>
         <input type="email"
-               id="email"
-               formControlName="email"
+               id="username"
+               formControlName="username"
                class="form-control"
                placeholder="Type in your email"/>
     
         <!-- UI Validations -->
         <small class="error text-danger"
-               *ngIf="isValidatorInvalid('email', 'required')">
+               *ngIf="isValidatorInvalid('username', 'required')">
             Email is required
         </small>
         <small class="error text-danger"
-               *ngIf="isValidatorInvalid('email', 'pattern')">
+               *ngIf="isValidatorInvalid('username', 'pattern')">
             Please, type in a valid email address
         </small>
     </div>
@@ -22,7 +22,7 @@
     <!-- login user password -->
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="email"
+        <input type="password"
                id="password"
                formControlName="password"
                class="form-control"

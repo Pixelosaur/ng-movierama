@@ -45,7 +45,7 @@ app.post('/authentication/login', (req, res) => {
     // generate jwt
     jwtToken.data.jwt.accessToken = jwt.sign(
         {
-            username: user.email,
+            name: user.username,
             identity: {
                 scope: 'admin_user',
             },
