@@ -1,18 +1,31 @@
 <div class="card mb-3">
     <div class="card-body">
-        <h5 class="card-title">{{movie.title}}</h5>
+        <h5 class="card-title">{{ movie.title }}</h5>
         <p class="card-text">
-            <small class="card-text">Posted By:
-                <span class="text-primary cursor-pointer"
-                   (click)="onPublisherNameClick(movie.publisherId)">
-                    <i *ngIf="username !== movie.publisherName">{{movie.publisherName}}</i>
+            <small class="card-text"
+                >Posted By:
+                <span
+                    class="text-primary cursor-pointer"
+                    (click)="onPublisherNameClick(movie.publisherId)"
+                >
+                    <i *ngIf="username !== movie.publisherName">{{ movie.publisherName }}</i>
                     <i *ngIf="username === movie.publisherName">You</i>
                 </span>
-            </small> |
-            <small class="text-muted">Publication Date: {{movie.publicationDate | date}}</small>
+            </small>
+            |
+            <small class="text-muted">Publication Date: {{ movie.publicationDate | date }}</small>
         </p>
-        <p class="card-text">{{movie.description}}</p>
-        <span class="card-link">{{movie.likesCount}} Likes</span>
-        <span class="card-link">{{movie.hatesCount}} Hates</span>
+        <p class="card-text">{{ movie.description }}</p>
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <span class="card-link">{{ movie.likesCount }} Likes</span>
+                <span class="card-link">{{ movie.hatesCount }} Hates</span>
+            </div>
+
+            <div *ngIf="username !== null">
+                <button class="btn btn-info btn-sm mr-2">Like</button>
+                <button class="btn btn-danger btn-sm">Hate</button>
+            </div>
+        </div>
     </div>
 </div>
