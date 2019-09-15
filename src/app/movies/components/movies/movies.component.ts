@@ -25,11 +25,12 @@ export class MoviesComponent implements OnInit {
         this.getMovies();
     }
 
-    getUsername(): void {
+    /* decodes the accessToken from JWT and gets the username value */
+    getNameFromJWT(): void {
         const token: string = this.tokenService.getToken('accessToken');
         const decodedToken = this.jwtHelperService.decodeToken(token);
 
-        this.username = token ? decodedToken.username : null;
+        this.username = token ? decodedToken.name : null;
     }
 
     getMoviesByPublisherId(id: string): void {
