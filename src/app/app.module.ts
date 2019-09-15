@@ -19,6 +19,7 @@ import { MovieService } from './movies/services/movie.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/components/register/register.component';
 import { RegisterFormComponent } from './register/components/register-form/register-form.component';
+import { RegisterService } from './register/services/register.service';
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import { RegisterFormComponent } from './register/components/register-form/regis
         TokenService,
         LoginService,
         MovieService,
+        RegisterService,
     ],
     bootstrap: [AppComponent],
 })
