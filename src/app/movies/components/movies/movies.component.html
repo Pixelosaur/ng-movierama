@@ -42,7 +42,9 @@
                 </span>
             </div>
 
-            <button class="btn btn-success" *ngIf="username" (click)="openModal(newMovie)">Add New Movie</button>
+            <button class="btn btn-success" *ngIf="username" (click)="openModal(newMovie)">
+                Add New Movie
+            </button>
         </div>
     </div>
 </div>
@@ -51,7 +53,11 @@
 <div class="row mt-5">
     <div class="col">
         <div *ngFor="let movie of movies">
-            <app-single-movie [movie]="movie" (publisherId)="onGetPublisherId($event)">
+            <app-single-movie
+                [movie]="movie"
+                [username]="username"
+                (publisherId)="onGetPublisherId($event)"
+            >
             </app-single-movie>
         </div>
     </div>
@@ -66,51 +72,56 @@
         </button>
     </div>
     <div class="modal-body">
-    
         <form [formGroup]="newMovieForm" (ngSubmit)="onSubmit(newMovieForm.value)" novalidate>
             <!-- movie title -->
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text"
-                       id="title"
-                       formControlName="title"
-                       class="form-control"
-                       placeholder="Type in the title of the movie"/>
-            
+                <input
+                    type="text"
+                    id="title"
+                    formControlName="title"
+                    class="form-control"
+                    placeholder="Type in the title of the movie"
+                />
+
                 <!-- UI Validations -->
-                <small class="error text-danger"
-                       *ngIf="isValidatorInvalid('title', 'required')">
+                <small class="error text-danger" *ngIf="isValidatorInvalid('title', 'required')">
                     Movie Title is required
                 </small>
             </div>
-        
+
             <!-- description -->
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description"
-                          formControlName="description"
-                          class="form-control"
-                          placeholder="Type in the movie description">
+                <textarea
+                    id="description"
+                    formControlName="description"
+                    class="form-control"
+                    placeholder="Type in the movie description"
+                >
                 </textarea>
-            
+
                 <!-- UI Validations -->
-                <small class="error text-danger"
-                       *ngIf="isValidatorInvalid('description', 'required')">
+                <small
+                    class="error text-danger"
+                    *ngIf="isValidatorInvalid('description', 'required')"
+                >
                     Movie description is required
                 </small>
             </div>
-        
-        
-            <button type="submit"
-                    [disabled]="newMovieForm.invalid"
-                    class="btn btn-primary float-right">
+
+            <button
+                type="submit"
+                [disabled]="newMovieForm.invalid"
+                class="btn btn-primary float-right"
+            >
                 Submit
             </button>
         </form>
-
-
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">
+            Close
+        </button>
     </div>
 </ng-template>

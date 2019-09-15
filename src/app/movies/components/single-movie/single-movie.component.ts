@@ -7,6 +7,7 @@ import { Movie } from '../../interfaces/movie.interface';
 })
 export class SingleMovieComponent {
     @Input() movie: Movie;
+    @Input() username: string;
     @Output() publisherId: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() {}
