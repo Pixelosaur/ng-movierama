@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewMovie } from '../../interfaces/new-movie.interface';
 import { DecryptedToken } from '../../../core/interfaces/decrypted-token.interface';
+import { VotedMovie } from '../../interfaces/voted-movie.interface';
 
 @Component({
     selector: 'app-movies',
@@ -83,6 +84,21 @@ export class MoviesComponent implements OnInit {
 
     redirect(path: string): void {
         this.router.navigate([path]);
+    }
+
+    onVote(votedMovie: VotedMovie): void {
+        this.sendVote(votedMovie);
+    }
+
+    sendVote(selectedMovie: VotedMovie): void {
+        this.movieService.sendVote(selectedMovie.id, selectedMovie.action).subscribe(
+            (movie: Movie) => {
+                this.getMovies();
+            },
+            (error: any) => {
+                console.error(error);
+            },
+        );
     }
 
     /* Initialize form values */

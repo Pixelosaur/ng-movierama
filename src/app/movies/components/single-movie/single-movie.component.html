@@ -23,8 +23,12 @@
             </div>
 
             <div *ngIf="username !== null">
-                <button class="btn btn-info btn-sm mr-2">Like</button>
-                <button class="btn btn-danger btn-sm">Hate</button>
+                <button class="btn btn-info btn-sm mr-2" (click)="onAction(movie.id, 'LIKE')">
+                    Like
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="onAction(movie.id, 'HATE')">
+                    Hate
+                </button>
             </div>
         </div>
     </div>

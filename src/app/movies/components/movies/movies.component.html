@@ -57,6 +57,7 @@
             <app-single-movie
                 [movie]="movie"
                 [username]="username"
+                (votedMovie)="onVote($event)"
                 (publisherId)="onGetPublisherId($event)"
             >
             </app-single-movie>
