@@ -41,4 +41,10 @@ export class MovieService {
             map((newMovie: Movie) => newMovie),
         );
     }
+
+    sendVote(movieId: string, voteAction: string): Observable<Movie> {
+        return this.http
+            .post<any>(`${environment.expressServerUrl}/movies/${movieId}`, { voteAction })
+            .pipe(map((movie: Movie) => movie));
+    }
 }
