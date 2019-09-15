@@ -13,7 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let request: HttpRequest<any>;
 
-        let authHeader = this.tokenService.getToken('token') ?
+        const authHeader = this.tokenService.getToken('token') ?
             `Bearer ${this.tokenService.getToken('token')}` : '';
 
         request = httpRequest.clone({
