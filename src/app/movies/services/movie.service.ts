@@ -19,25 +19,25 @@ export class MovieService {
                 : undefined;
 
         return this.http
-            .get<any>(`${environment.expressServerUrl}/movies`, {
+            .get<any>(`${environment.expressServerUrl}/movies/all`, {
                 params,
             })
             .pipe(
-                map((response: any) => response.data),
+                map((response: any) => response.content),
                 map((movies: Movie[]) => movies),
             );
     }
 
     getMoviesByPublisherId(id: string): Observable<Movie[]> {
         return this.http.get<any>(`${environment.expressServerUrl}/movies/${id}`).pipe(
-            map((response) => response.data),
+            map((response) => response.content),
             map((movies: Movie[]) => movies),
         );
     }
 
     addMovie(movie: NewMovie): Observable<Movie> {
         return this.http.post<any>(`${environment.expressServerUrl}/movies`, movie).pipe(
-            map((response: any) => response.data),
+            map((response: any) => response.content),
             map((newMovie: Movie) => newMovie),
         );
     }

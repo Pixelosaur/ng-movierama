@@ -35,9 +35,9 @@ export class MoviesComponent implements OnInit {
         this.getMovies();
     }
 
-    /* decodes the accessToken from JWT and gets the username value */
+    /* decodes the token from JWT and gets the username value */
     getNameFromJWT(): void {
-        const token: string = this.tokenService.getToken('accessToken');
+        const token: string = this.tokenService.getToken('token');
         const decryptedToken: DecryptedToken = this.jwtHelperService.decodeToken(token);
 
         this.username = token ? decryptedToken.name : null;
@@ -129,7 +129,7 @@ export class MoviesComponent implements OnInit {
     }
 
     logout(): void {
-        this.tokenService.removeToken('accessToken');
+        this.tokenService.removeToken('token');
         this.router.navigate(['/login']);
     }
 }

@@ -9,7 +9,7 @@ export class AuthService {
 
     /** it checks whether a user is authenticated or not */
     isUserAuthenticated(): boolean {
-        const token: string = this.tokenService.getToken('accessToken');
+        const token: string = this.tokenService.getToken('token');
 
         if (token) {
             return !this.jwtHelper.isTokenExpired(token);

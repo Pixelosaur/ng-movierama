@@ -1,3 +1,3 @@
 export interface Jwt {
-    accessToken: string;
+    token: string;
 }

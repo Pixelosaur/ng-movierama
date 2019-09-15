@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     // error
     isAlertDisplayed: boolean = false;
     errorMessage: string;
-    
+
     // form
     loginForm: FormGroup;
 
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.loginService.login(user).subscribe(
             (jwt: Jwt) => {
                 // on success
-                this.tokenService.setToken('accessToken', jwt.accessToken);
+                this.tokenService.setToken('token', jwt.token);
                 this.router.navigate(['/movies']);
             },
             (loginError: Error) => {

@@ -10,13 +10,13 @@ import { map } from 'rxjs/operators';
 export class LoginService {
     constructor(private http: HttpClient) {}
 
-    /** it posts the login user to the server and returns a jwt accessToken */
+    /** it posts the login user to the server and returns a jwt token */
     login(user: LoginUser): Observable<Jwt> {
         return this.http
             .post<any>(`${environment.expressServerUrl}/authenticate`, user)
             .pipe(
-                map((response: any) => response.data),
-                map((jwt: any) => jwt.jwt),
+                map((response: any) => response),
+                // map((jwt: any) => jwt.jwt),
             );
     }
 }
