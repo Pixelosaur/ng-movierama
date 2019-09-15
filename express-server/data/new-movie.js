@@ -1,6 +1,6 @@
 exports.data = {
     title: 'Kill Bill',
-    publisherName: 'User',
+    publisherName: 'user@movierama.com',
     publicationDate: new Date(),
     publisherId: '4',
     description: 'LLALALALALALALALALALALALALALALAL',
