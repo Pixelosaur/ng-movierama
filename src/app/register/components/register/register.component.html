@@ -1,1 +1,18 @@
-register
+<div *ngIf="isAlertDisplayed" class="alert alert-danger">
+    {{ errorMessage }}
+</div>
+
+<div class="container" id="register-container">
+    <div class="row d-flex justify-content-center align-items-stretch register-wrapper">
+        <div class="col-sm-12 col-md-10 col-lg-6 align-self-center">
+            <h1 class="text-center app-logo">MovieRama</h1>
+
+            <div class="mt-5 mb-4">
+                <h4>Create Account</h4>
+            </div>
+
+            <app-register-form [registerForm]="registerForm" (register)="onRegister($event)">
+            </app-register-form>
+        </div>
+    </div>
+</div>
