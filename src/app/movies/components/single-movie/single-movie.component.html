@@ -3,12 +3,13 @@
         <h5 class="card-title">{{movie.title}}</h5>
         <p class="card-text">
             <small class="card-text">Posted By:
-                <i class="text-primary cursor-pointer"
+                <span class="text-primary cursor-pointer"
                    (click)="onPublisherNameClick(movie.publisherId)">
-                    {{movie.publisherName}}
-                </i>
+                    <i *ngIf="username !== movie.publisherName">{{movie.publisherName}}</i>
+                    <i *ngIf="username === movie.publisherName">You</i>
+                </span>
             </small> |
-            <small class="text-muted">Last updated: {{movie.publicationDate | date}}</small>
+            <small class="text-muted">Publication Date: {{movie.publicationDate | date}}</small>
         </p>
         <p class="card-text">{{movie.description}}</p>
         <span class="card-link">{{movie.likesCount}} Likes</span>
